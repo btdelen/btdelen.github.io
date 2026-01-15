@@ -196,20 +196,18 @@ function initCVDownload() {
         btn.addEventListener('click', function (e) {
             e.preventDefault();
 
-            // Check if CV is available
+            // Get current language and build CV path
             const currentLang = localStorage.getItem('preferred-language') || 'en';
             const cvPath = `assets/cv/CV_${currentLang.toUpperCase()}.pdf`;
 
-            // For now, show alert since CV is not ready
-            // When CV is ready, remove this and enable download
+            // Open CV in new tab
+            window.open(cvPath, '_blank');
+
+            // Show confirmation toast
             const message = currentLang === 'tr'
-                ? 'CV yakında eklenecek!'
-                : 'CV coming soon!';
-
+                ? 'CV indiriliyor...'
+                : 'Downloading CV...';
             showToast(message);
-
-            // When CV is ready, uncomment this:
-            // window.open(cvPath, '_blank');
         });
     });
 }

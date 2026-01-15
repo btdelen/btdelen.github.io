@@ -344,6 +344,12 @@ function openModal(modal) {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 
+    // Play videos when modal opens (lazy load)
+    const videos = modal.querySelectorAll('video');
+    videos.forEach(video => {
+        video.play().catch(() => { }); // Ignore autoplay errors
+    });
+
     // Apply current language to modal
     const currentLang = localStorage.getItem('preferred-language') || 'en';
     setLanguage(currentLang);

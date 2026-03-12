@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Başar Toprak Delen</title>
+    <meta name="description" content="Portfolio projects of Başar Toprak Delen - Embedded Systems & Robotics Engineer">
+
+    <!-- OpenGraph SEO -->
+    <meta property="og:title" content="Projects | Başar Toprak Delen">
+    <meta property="og:description" content="Explore my embedded systems, robotics, and PCB design projects.">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Projects Page Specific Styles */
+        .projects-page-hero {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--color-bg-light);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-secondary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--color-primary);
+            color: #fff;
+            border-color: var(--color-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">BTD</span>
+                <span class="logo-dot"></span>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+                <a href="projects.html" class="nav-link" data-i18n="nav.projects">Projects</a>
+                <a href="pcb-circuit-design.html" class="nav-link" data-i18n="nav.pcb">PCB Design</a>
+                <a href="ios-development.html" class="nav-link active" data-i18n="nav.ios">iOS Development</a>
+                <a href="workshop.html" class="nav-link" data-i18n="nav.workshop">Workshop</a>
+                <a href="3d-cad.html" class="nav-link" data-i18n="nav.cad">3D CAD</a>
+                <a href="resume.html" class="nav-link" data-i18n="nav.resume">Resume</a>
+                <a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                    <svg class="sun-icon" viewBox="0 0 24 24" style="display: none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="tr">TR</button>
+                </div>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobile-nav">
+        <nav class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link" data-i18n="nav.home">Home</a>
+            <a href="projects.html" class="mobile-nav-link" data-i18n="nav.projects">Projects</a>
+            <a href="pcb-circuit-design.html" class="mobile-nav-link" data-i18n="nav.pcb">PCB Design</a>
+            <a href="ios-development.html" class="mobile-nav-link active" data-i18n="nav.ios">iOS Development</a>
+            <a href="workshop.html" class="mobile-nav-link" data-i18n="nav.workshop">Workshop</a>
+            <a href="3d-cad.html" class="mobile-nav-link" data-i18n="nav.cad">3D CAD</a>
+            <a href="resume.html" class="mobile-nav-link" data-i18n="nav.resume">Resume</a>
+            <a href="contact.html" class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="projects-page-hero">
+            <div class="section-container">
+                <span class="section-label" data-i18n="nav.ios">iOS Development</span>
+                <h1 class="section-title" data-i18n="about.skills.ios" style="margin-bottom: 24px;">iOS Development</h1>
+                <p class="section-description" data-i18n="projects.ios.description"
+                    style="max-width: 600px; margin: 0 auto;">
+                    Native iOS applications bridging mobile and embedded hardware.
+                </p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects" id="projects" style="padding-top: 0;">
+            <div class="section-container">
+
+
+                <div
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 0; color: var(--color-text-secondary); text-align: center;">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                        style="margin-bottom: 20px;">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <h2 data-i18n="projects.comingSoon" style="font-size: 24px; color: var(--color-text);">Coming Soon
+                    </h2>
+                    <p data-i18n="projects.comingSoon.desc" style="margin-top: 10px; max-width: 400px;">Content is currently being prepared. Please check back later.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="contact"
+        style="padding: 40px 0 20px; text-align: center; border-top: 1px solid var(--color-border); margin-top: 40px;">
+        <div class="section-container">
+            <p class="copyright">© 2026 Başar Toprak Delen. <span data-i18n="footer.rights">All rights reserved.</span>
+            </p>
+            <p class="footer-tagline" data-i18n="footer.tagline"
+                style="margin-top: 10px; color: var(--color-text-secondary);">Engineering Hardware & Software with
+                Precision</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

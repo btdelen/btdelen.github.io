@@ -5,6 +5,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize all components
     initLanguageToggle();
+    initThemeToggle();
     initMobileMenu();
     initHeaderScroll();
     initImageCarousel();
@@ -12,6 +13,43 @@ document.addEventListener('DOMContentLoaded', function () {
     initCVDownload();
     initProjectModals();
 });
+
+// ========================================
+// Theme (Dark/Light) System
+// ========================================
+function initThemeToggle() {
+    const themeBtn = document.getElementById('theme-toggle');
+    if (!themeBtn) return;
+
+    const sunIcon = themeBtn.querySelector('.sun-icon');
+    const moonIcon = themeBtn.querySelector('.moon-icon');
+
+    // Check localStorage or OS preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+    if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+    }
+
+    themeBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        if (newTheme === 'light') {
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
+        } else {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        }
+    });
+}
 
 // ========================================
 // Language Toggle System
@@ -290,107 +328,4 @@ function initScrollAnimations() {
     animateElements.forEach(el => observer.observe(el));
 }
 
-// Initialize scroll animations after DOM is ready
-document.addEventListener('DOMContentLoaded', initScrollAnimations);
-
-// ========================================
-// Project Modals
-// ========================================
-function initProjectModals() {
-    const overlay = document.getElementById('modal-overlay');
-    const projectCards = document.querySelectorAll('.project-card[data-modal]');
-
-    if (!overlay) return;
-
-    // Open modal when clicking project card
-    projectCards.forEach(card => {
-        card.addEventListener('click', function (e) {
-            // Don't open modal if clicking on a link
-            if (e.target.closest('a')) return;
-
-            const modalId = this.dataset.modal;
-            const modal = document.getElementById(`modal-${modalId}`);
-
-            if (modal) {
-                openModal(modal);
-            }
-        });
-    });
-
-    // Close modal handlers
-    const closeButtons = document.querySelectorAll('.modal-close');
-    closeButtons.forEach(btn => {
-        btn.addEventListener('click', closeActiveModal);
-    });
-
-    // Close on overlay click
-    overlay.addEventListener('click', closeActiveModal);
-
-    // Close on Escape key
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-            closeActiveModal();
-        }
-    });
-
-    // Initialize modal galleries
-    initModalGalleries();
-}
-
-function openModal(modal) {
-    const overlay = document.getElementById('modal-overlay');
-
-    overlay.classList.add('active');
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-
-    // Play videos when modal opens (lazy load)
-    const videos = modal.querySelectorAll('video');
-    videos.forEach(video => {
-        video.play().catch(() => { }); // Ignore autoplay errors
-    });
-
-    // Apply current language to modal
-    const currentLang = localStorage.getItem('preferred-language') || 'en';
-    setLanguage(currentLang);
-}
-
-function closeActiveModal() {
-    const overlay = document.getElementById('modal-overlay');
-    const activeModal = document.querySelector('.project-modal.active');
-
-    // Pause any playing videos in the modal
-    if (activeModal) {
-        const videos = activeModal.querySelectorAll('video');
-        videos.forEach(video => {
-            video.pause();
-            video.currentTime = 0;
-        });
-    }
-
-    if (overlay) overlay.classList.remove('active');
-    if (activeModal) activeModal.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-function initModalGalleries() {
-    const galleries = document.querySelectorAll('.modal-gallery');
-
-    galleries.forEach(gallery => {
-        const images = gallery.querySelectorAll('.modal-img');
-        const dots = gallery.querySelectorAll('.gallery-dot');
-
-        if (images.length <= 1 || dots.length === 0) return;
-
-        dots.forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-                images.forEach((img, j) => {
-                    img.classList.toggle('active', j === i);
-                });
-                dots.forEach((d, j) => {
-                    d.classList.toggle('active', j === i);
-                });
-            });
-        });
-    });
-}
+// Modal Logic Removed for Multi-Page Refactor

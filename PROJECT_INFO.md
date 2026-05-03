@@ -39,5 +39,8 @@ Bu dosya, projenin genel yapısını ve önemli sistemlerini özetlemek için ol
 - Değişim yapıldığında `document.documentElement` (html) üzerine `data-theme="dark"` veya `light` niteliği eklenir. `styles.css` içerisindeki CSS değişkenleri bu niteliğe göre renkleri ayarlar.
 
 ### 3. CV İndirme Mantığı
-- Özel sayfalardaki (ör. `resume.html`) CV butonlarının href değeri `assets/cv/CV_EN.pdf` veya `assets/cv/CV_TR.pdf` olarak dinamik olarak değiştirilir.
-- Eskiden yaşanan hata: `resume.html` içindeki özel script `localStorage.getItem('language')` değerine bakıyordu ancak ana sistem dili `preferred-language` olarak kaydediyordu. Bu hata düzeltildi ve script'in `html` etiketinin `lang` niteliğindeki değişimi takip etmesi sağlandı.
+- CV indirme işlemleri tamamen `script.js` içerisindeki `initCVDownload()` fonksiyonu tarafından merkezi olarak yönetilir.
+- `resume.html` (veya CV butonunun olduğu diğer yerlerde) bulunan indirme bağlantısına (a etiketi) **`cv-btn`** sınıfı eklenir.
+- Kullanıcı butona tıkladığında `script.js` devreye girerek, `localStorage` içindeki `preferred-language` değerini kontrol eder, duruma göre `assets/cv/CV_EN.pdf` veya `assets/cv/CV_TR.pdf` dosyasını yeni sekmede açar.
+- Aynı zamanda alt kısımda "CV indiriliyor..." şeklinde şık bir Toast bildirimi çıkarır.
+- Eskiden yaşanan İngilizce inme sorunu ve manuel scriptlerin çakışması engellenmiş, sistem tek elden daha stabil hale getirilmiştir.

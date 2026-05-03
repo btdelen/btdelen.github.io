@@ -261,7 +261,7 @@
 
                 <!-- Download CV Action -->
                 <div class="resume-actions">
-                    <a href="assets/cv/CV_EN.pdf" download class="btn btn-primary" id="downloadCvBtn">
+                    <a href="#" class="btn btn-primary cv-btn" id="downloadCvBtn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -288,32 +288,6 @@
     <!-- Scripts -->
     <script src="translations.js"></script>
     <script src="script.js"></script>
-    <script>
-        // Update CV download link based on current language
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentLang = localStorage.getItem('preferred-language') || 'en';
-            updateCvLink(currentLang);
-
-            // Listen for custom translation updates from script.js
-            const observer = new MutationObserver((mutations) => {
-                mutations.forEach((mutation) => {
-                    if (mutation.attributeName === 'lang') {
-                        const newLang = document.documentElement.lang;
-                        updateCvLink(newLang);
-                    }
-                });
-            });
-
-            observer.observe(document.documentElement, { attributes: true });
-        });
-
-        function updateCvLink(lang) {
-            const btn = document.getElementById('downloadCvBtn');
-            if (btn) {
-                btn.href = lang === 'tr' ? 'assets/cv/CV_TR.pdf' : 'assets/cv/CV_EN.pdf';
-            }
-        }
-    </script>
 </body>
 
 </html>

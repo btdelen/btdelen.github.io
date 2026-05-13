@@ -149,6 +149,19 @@ const translations = {
         'modal.mainboard.f4.title': 'Custom Layout',
         'modal.mainboard.f4.desc': 'Layer-optimized signal routing with KiCad',
 
+        // Motor Driver Modal
+        'projects.motordriver.title': 'FOC Supported BLDC Motor Driver',
+        'projects.motordriver.description': 'A highly efficient Brushless DC (BLDC) motor driver with Field-Oriented Control (FOC) support, designed for precision robotics.',
+        'modal.motordriver.overview': 'A highly efficient Brushless DC (BLDC) motor driver with Field-Oriented Control (FOC) support. Designed to provide smooth and precise motor control for robotics and advanced automation applications.',
+        'modal.motordriver.f1.title': 'FOC Algorithm Support',
+        'modal.motordriver.f1.desc': 'Field-Oriented Control for maximum efficiency and torque.',
+        'modal.motordriver.f2.title': 'High Power Density',
+        'modal.motordriver.f2.desc': 'Optimized PCB layout to handle high currents safely.',
+        'modal.motordriver.f3.title': 'Robust Protection',
+        'modal.motordriver.f3.desc': 'Overcurrent, overvoltage, and thermal protection features.',
+        'modal.motordriver.f4.title': 'Compact Footprint',
+        'modal.motordriver.f4.desc': 'Designed to fit seamlessly into tight robotic chassis.',
+
         // Resume Section (Timeline)
         'resume.exp1.date': 'July 2025 – August 2025',
         'resume.exp1.title': 'Technical Intern Engineer',
@@ -316,6 +329,19 @@ const translations = {
         'modal.mainboard.f3.desc': 'Limit switchler üzerinde entegre pull-up ve donanımsal debouncing',
         'modal.mainboard.f4.title': 'Özel Yerleşim',
         'modal.mainboard.f4.desc': 'KiCad ile katman optimizasyonlu sinyal yönlendirmesi',
+
+        // Motor Driver Modal
+        'projects.motordriver.title': 'FOC Destekli BLDC Motor Sürücü',
+        'projects.motordriver.description': 'Hassas robotik uygulamalar için tasarlanmış, Alan Yönlendirmeli Kontrol (FOC) destekli, yüksek verimli Fırçasız DC (BLDC) motor sürücü.',
+        'modal.motordriver.overview': 'Alan Yönlendirmeli Kontrol (FOC) destekli yüksek verimli Fırçasız DC (BLDC) motor sürücü. Robotik ve gelişmiş otomasyon uygulamaları için pürüzsüz ve hassas motor kontrolü sağlamak üzere tasarlanmıştır.',
+        'modal.motordriver.f1.title': 'FOC Algoritma Desteği',
+        'modal.motordriver.f1.desc': 'Maksimum verimlilik ve tork için Alan Yönlendirmeli Kontrol.',
+        'modal.motordriver.f2.title': 'Yüksek Güç Yoğunluğu',
+        'modal.motordriver.f2.desc': 'Yüksek akımları güvenle işlemek için optimize edilmiş PCB yerleşimi.',
+        'modal.motordriver.f3.title': 'Güçlü Koruma',
+        'modal.motordriver.f3.desc': 'Aşırı akım, aşırı gerilim ve termal koruma özellikleri.',
+        'modal.motordriver.f4.title': 'Kompakt Tasarım',
+        'modal.motordriver.f4.desc': 'Dar robotik şasilere sorunsuz bir şekilde sığacak şekilde tasarlanmıştır.',
 
         // Resume Section (Timeline)
         'resume.exp1.date': 'Temmuz 2025 – Ağustos 2025',
